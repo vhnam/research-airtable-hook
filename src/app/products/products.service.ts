@@ -13,6 +13,10 @@ export class ProductsService {
     private readonly productsRepository: Repository<ProductEntity>,
   ) {}
 
+  findAll(): Promise<ProductEntity[]> {
+    return this.productsRepository.find();
+  }
+
   create(product: Product): Promise<ProductEntity> {
     const newProduct = new ProductEntity();
     newProduct.name = product.name;
